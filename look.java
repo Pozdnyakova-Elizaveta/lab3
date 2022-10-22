@@ -16,8 +16,7 @@ class Look{
      public Look(){
      }
 
-     public void read(System.in){
-         Scanner in = new Scanner(in);
+     public void read(Scanner in){
          System.out.println("Какой у нее окрас?: ");
          this.color=in.next();
          System.out.println("Какой у нее цвет глаз?: ");

@@ -1,6 +1,7 @@
 package lab3;
 import lab3.Dog;
 import java.util.Scanner;
+import java.util.*;
 
 public class Program{ 
       
@@ -14,6 +15,13 @@ public class Program{
         Command_know command_know = new Command_know(false, false, false);
         Needs needs = new Needs(true, true);
         Dog your_dog_1 = new Dog(inf, look, character, needs, command_know);
+        ArrayList<Dog> your_dog = new ArrayList<>();
+        for (int i=0; i<2; i++){
+           your_dog.add(new Dog(inf, look, character, needs, command_know));
+           your_dog.get(i).read(in);
+           your_dog.get(i).display();
+        }
+        your_dog.clear();
         your_dog_1.read(in);
         while (func != 6) {
 		System.out.println("Нажмите: 1 - для вывода информации о собаке");

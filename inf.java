@@ -13,11 +13,14 @@ class Inf{
      }
      public Inf(String name){
          this.name=name;
-         age=0;
-         breed="breed";
+         this.age=0;
+         this.breed="breed";
      }
 
      public Inf(){
+         this.name="name";
+         this.age=0;
+         this.breed="breed";
      }
 
      public void read(Scanner in){

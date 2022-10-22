@@ -11,9 +11,12 @@ class Character{
      }
      public Character(int learn){
          this.learn=learn;
+         this.friendly=false;
      }
 
      public Character(){
+         this.learn=0;
+         this.friendly=false;
      }
 
      public void read(Scanner in){

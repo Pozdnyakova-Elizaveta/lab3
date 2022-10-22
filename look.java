@@ -11,9 +11,12 @@ class Look{
      }
      public Look(String color){
          this.color=color;
+         this.eye_color="eye_color";
      }
 
      public Look(){
+         this.color=color;
+         this.eye_color="eye_color";
      }
 
      public void read(Scanner in){

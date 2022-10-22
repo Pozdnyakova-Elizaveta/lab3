@@ -11,9 +11,14 @@ class Command_know{
      }
      public Command_know(boolean sit){
          this.sit=sit;
+         this.to_me = false;
+         this.lie=false;
      }
 
      public Command_know(){
+         this.sit=false;
+         this.to_me = false;
+         this.lie=false;
      }
 
      public void display(){

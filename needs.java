@@ -9,9 +9,12 @@ class Needs{
      }
      public Needs(boolean eat){
          this.eat=eat;
+         this.walk = true;
      }
 
      public Needs(){
+         this.eat=true;
+         this.walk = true;
      }
 
      public void display(){

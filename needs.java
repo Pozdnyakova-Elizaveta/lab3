@@ -1,7 +1,7 @@
 package lab3;
 class Needs{
-     boolean eat;
-     boolean walk;
+     private boolean eat;
+     private boolean walk;
 
      public Needs(boolean eat, boolean walk){
          this.eat = eat;
@@ -9,12 +9,12 @@ class Needs{
      }
      public Needs(boolean eat){
          this.eat=eat;
-         this.walk = true;
+         walk = true;
      }
 
      public Needs(){
-         this.eat=true;
-         this.walk = true;
+         eat=true;
+         walk = true;
      }
 
      public void display(){
@@ -22,5 +22,17 @@ class Needs{
          if (eat) System.out.print("есть, ");
          if (walk) System.out.print("гулять");
          System.out.println("");
+     }
+     public boolean get_eat(){
+         return eat;
+     }
+     public boolean get_walk(){
+         return walk;
+     }
+     public void set_eat(boolean eat){
+         this.eat=eat;
+     }
+     public void set_walk(boolean walk){
+         this.walk=walk;
      }
 }

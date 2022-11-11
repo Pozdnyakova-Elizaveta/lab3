@@ -2,8 +2,8 @@ package lab3;
 import java.util.Scanner;
 
 class Character{
-     boolean friendly;
-     int learn;
+     private boolean friendly;
+     private int learn;
 
      public Character(boolean friendly, int learn){
          this.friendly=friendly;
@@ -11,12 +11,12 @@ class Character{
      }
      public Character(int learn){
          this.learn=learn;
-         this.friendly=false;
+         friendly=true;
      }
 
      public Character(){
-         this.learn=0;
-         this.friendly=false;
+         learn=0;
+         friendly=true;
      }
 
      public void read(Scanner in){
@@ -29,5 +29,11 @@ class Character{
      public void display(){
          System.out.print((friendly)?"Дружелюбная, ":"Агрессивная, ");
          System.out.println("уровень обучаемости - " + learn);
+     }
+     public boolean get_friendly(){
+         return friendly;
+     }
+     public int get_learn(){
+         return learn;
      }
 }

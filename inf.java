@@ -2,9 +2,9 @@ package lab3;
 import java.util.Scanner;
 
 class Inf{
-     String name;
-     int age;
-     String breed;
+     private String name;
+     private int age;
+     private String breed;
 
      public Inf(String name, int age, String breed){
          this.name=name;
@@ -13,14 +13,14 @@ class Inf{
      }
      public Inf(String name){
          this.name=name;
-         this.age=0;
-         this.breed="breed";
+         age=0;
+         breed="breed";
      }
 
      public Inf(){
-         this.name="name";
-         this.age=0;
-         this.breed="breed";
+         name="name";
+         age=0;
+         breed="breed";
      }
 
      public void read(Scanner in){
@@ -34,5 +34,11 @@ class Inf{
 
      public void display(){
          System.out.println("Ваша собака - " + name + ", порода - " + breed + ", возраст - " + age);
+     }
+     public String get_name(){
+         return name;
+     }
+     public int get_age(){
+         return age;
      }
 }

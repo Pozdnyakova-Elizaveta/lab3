@@ -2,8 +2,8 @@ package lab3;
 import java.util.Scanner;
 
 class Look{
-     String color;
-     String eye_color;
+     private String color;
+     private String eye_color;
 
      public Look(String color, String eye_color){
          this.color=color;
@@ -11,12 +11,12 @@ class Look{
      }
      public Look(String color){
          this.color=color;
-         this.eye_color="eye_color";
+         eye_color="eye_color";
      }
 
      public Look(){
-         this.color=color;
-         this.eye_color="eye_color";
+         color="color";
+         eye_color="eye_color";
      }
 
      public void read(Scanner in){

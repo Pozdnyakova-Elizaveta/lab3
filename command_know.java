@@ -1,8 +1,8 @@
 package lab3;
 class Command_know{
-     boolean sit;
-     boolean to_me;
-     boolean lie;
+     private boolean sit;
+     private boolean to_me;
+     private boolean lie;
 
      public Command_know(boolean sit, boolean to_me, boolean lie){
          this.sit = sit;
@@ -11,14 +11,14 @@ class Command_know{
      }
      public Command_know(boolean sit){
          this.sit=sit;
-         this.to_me = false;
-         this.lie=false;
+         to_me = false;
+         lie=false;
      }
 
      public Command_know(){
-         this.sit=false;
-         this.to_me = false;
-         this.lie=false;
+         sit=false;
+         to_me = false;
+         lie=false;
      }
 
      public void display(){
@@ -27,5 +27,23 @@ class Command_know{
          if (to_me) System.out.print("ко мне, ");
          if (lie) System.out.print("лежать");
          System.out.println("");
+     }
+     public boolean get_sit(){
+         return sit;
+     }
+     public boolean get_to_me(){
+         return to_me;
+     }
+     public boolean get_lie(){
+         return lie;
+     }
+     public void set_sit(boolean sit){
+         this.sit=sit;
+     }
+     public void set_to_me(boolean to_me){
+         this.to_me=to_me;
+     }
+     public void set_lie(boolean lie){
+         this.lie=lie;
      }
 }

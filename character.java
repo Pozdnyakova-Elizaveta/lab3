@@ -26,9 +26,12 @@ class Character{
          this.learn=in.nextInt();
      }
 
-     public void display(){
-         System.out.print((friendly)?"Дружелюбная, ":"Агрессивная, ");
-         System.out.println("уровень обучаемости - " + learn);
+     public String toString(){
+         String s;
+         if (friendly) s="Дружелюбная, ";
+         else s="Агрессивная, ";
+         s=s+"уровень обучаемости - " + learn;
+         return s;
      }
      public boolean get_friendly(){
          return friendly;

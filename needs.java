@@ -17,11 +17,12 @@ class Needs{
          walk = true;
      }
 
-     public void display(){
-         System.out.print("Ваша собака хочет: ");
-         if (eat) System.out.print("есть, ");
-         if (walk) System.out.print("гулять");
-         System.out.println("");
+     public String toString(){
+	    String s;
+         s = "Ваша собака хочет: ";
+         if (eat) s= s+ "есть, ";
+         if (walk) s = s + "гулять";
+         return s;
      }
      public boolean get_eat(){
          return eat;

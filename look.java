@@ -26,7 +26,7 @@ class Look{
          this.eye_color=in.next();
      }
 
-     public void display(){
-         System.out.println("Окрас - " + color + ", цвет глаз - " + eye_color);
+     public String toString(){
+         return "Окрас - " + color + ", цвет глаз - " + eye_color;
      }
 }

@@ -1,7 +1,7 @@
 package lab3;
 import java.util.Scanner;
 
-class Inf{
+class Inf implements Cloneable{
      private String name;
      private int age;
      private String breed;
@@ -32,13 +32,30 @@ class Inf{
          this.age=in.nextInt();
      }
 
-     public void display(){
-         System.out.println("Ваша собака - " + name + ", порода - " + breed + ", возраст - " + age);
+     public String toString(){
+         return "Ваша собака - " + name + ", порода - " + breed + ", возраст - " + age;
      }
      public String get_name(){
          return name;
      }
+     public String get_breed(){
+         return breed;
+     }
      public int get_age(){
          return age;
      }
+     public void set_age(int a){
+         age=a;
+     }
+     public Object clone(){
+         try
+         {
+         return (Inf)super.clone();
+         }
+         catch(CloneNotSupportedException e)
+         {
+         
+         }
+         return this;
+    }
 }

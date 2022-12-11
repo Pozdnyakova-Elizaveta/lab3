@@ -21,12 +21,13 @@ class Command_know{
          lie=false;
      }
 
-     public void display(){
-         System.out.print("Ваша собака знает команды: ");
-         if (sit) System.out.print("сидеть, ");
-         if (to_me) System.out.print("ко мне, ");
-         if (lie) System.out.print("лежать");
-         System.out.println("");
+     public String toString(){
+         String s;
+         s="Ваша собака знает команды: ";
+         if (sit) s=s+"сидеть, ";
+         if (to_me) s=s+"ко мне, ";
+         if (lie) s=s+"лежать";
+         return s;
      }
      public boolean get_sit(){
          return sit;

@@ -9,10 +9,10 @@ import lab3.Character;
 import lab3.Needs;
 import lab3.Command_know;
 import java.util.Arrays;
-class Dog{
+class Dog implements Command, Cloneable{
      static int sum=0;
      static int sum_friendly=0;
-     protected Inf inf;
+     public Inf inf;
      protected Look look;
      protected Character character;
      protected Needs needs;
@@ -46,12 +46,14 @@ class Dog{
          if (character.get_friendly()) sum_friendly++;
      }
 
-     public void display(){
-         inf.display();
-         look.display();
-         character.display();
-         command_know.display();
-         needs.display();
+     public String toString(){
+         String s="";
+         s=s+inf.toString()+"\n";
+         s=s+look.toString()+"\n";
+         s=s+character.toString()+"\n";
+         s=s+command_know.toString()+"\n";
+         s=s+needs.toString()+"\n";
+         return s;
      }
      public void touch(Dog dog){
          if (dog.character.get_friendly()) System.out.println(dog.inf.get_name()+" рад(а)!");
@@ -153,7 +155,7 @@ class Dog{
 			a[i].look=look;
 			a[i].needs=needs;
 			a[i].command_know=command_know;
-			a[i].display();
+			System.out.println(a[i].toString());
 		}
 		catch(NumberFormatException e){
 			System.out.println("Не удалось считать численное значение");
@@ -216,7 +218,7 @@ class Dog{
 					a[i][j].look=look;
 					a[i][j].needs=needs;
 					a[i][j].command_know=command_know;
-					a[i][j].display();
+					System.out.println(a[i][j].toString());
 			   }
 			   catch(NumberFormatException e){
 				System.out.println("\nНе удалось считать численное значение\n");
@@ -240,5 +242,40 @@ class Dog{
 		 p=1;
      }
    return p;
+ }
+ public Inf get_inf(){return inf;}
+ public Character get_character(){return character;}
+ public Look get_look(){return look;}
+ public void number_skills(){
+     int n = 0;
+	if (command_know.get_lie()) n=n+1;
+	if (command_know.get_to_me()) n=n+1;
+	if (command_know.get_sit()) n=n+1;
+      System.out.println("Собака "+inf.get_name()+" имеет "+n+" навыков");
+ }
+ public Object clone_deep()
+ {
+     try
+     {
+       Dog clone=(Dog)super.clone();
+       clone.inf=(Inf)inf.clone();
+       return clone;
+     }
+   catch(CloneNotSupportedException e)
+   {      
+   }
+   return this;  
+ }
+ public Object clone()
+ {
+     try
+     {
+       Dog clone=(Dog)super.clone();
+       return clone;
+     }
+   catch(CloneNotSupportedException e)
+   {      
+   }
+   return this;  
  }
 }

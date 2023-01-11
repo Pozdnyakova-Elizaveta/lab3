@@ -7,17 +7,92 @@ import java.util.Scanner;
 import java.util.*;
 
 public class Program{ 
-      
+    public static int recursiveBinarySearch(ArrayList<Dog> d, int first, int last, int search){
+		if (last>=first){
+			int mid=first+(last-first)/2;
+			if (d.get(mid).get_inf().get_age()==search) return mid;
+			if (d.get(mid).get_inf().get_age()>search) return recursiveBinarySearch(d, first, mid-1, search);
+			return recursiveBinarySearch(d, mid+1, last,search);
+		}
+		return -1;
+    }
     public static void main (String args[]){
         Scanner in = new Scanner(System.in);
         int func=0;
         int kom=0;
+        int num;
         Inf inf = new Inf("name", 0, "breed");
         Look look = new Look("color", "color eyes");
         Character character = new Character(false, 0);
         Command_know command_know = new Command_know(false, false, false);
         Needs needs = new Needs(true, true);
         Ride_character<Double> ride = new Ride_character<Double>(4.0,55.6);
+        ArrayList<Dog> all_dog = new ArrayList<>();
+        Iterator ir=all_dog.iterator();
+        Dog dog[] =new Dog[2];
+        Sled_dog sled_dog[] =new Sled_dog[2];
+        Dog.work_massiv(dog);
+        Sled_dog.work_massiv_sled(sled_dog);
+        for (int i=0; i<2; i++){
+        	all_dog.add(dog[i]);
+        	all_dog.add(sled_dog[i]);
+        }
+        while (func!=7){
+		System.out.println("Работа с контейнером");
+		System.out.println("1 - вывод всех собак");
+		System.out.println("2 - добавить собаку");
+		System.out.println("3 - удалить собаку из списка");
+		System.out.println("4 - общее количество собак");
+		System.out.println("5 - сортировка");
+		System.out.println("6 - поиск");
+		System.out.println("7 - завершить работу с контейнером");
+		func=in.nextInt();
+           switch (func) {
+		    case 1:
+           		for (int i=0; i<all_dog.size(); i++) System.out.println(all_dog.get(i).toString());
+           		break;
+               case 2:{
+           		System.out.println("Введите 1 или 2: 1 - добавить обычную собаку, 2 - добавить ездовую собаку");
+           		num=in.nextInt();
+				if (num==1){
+					Dog d_dog=new Dog(inf,look,character,needs,command_know);
+					d_dog.read(in);
+					all_dog.add(all_dog.size(),d_dog);
+				}
+				if (num==2){
+					Sled_dog d_sled_dog=new Sled_dog(inf,look,character,needs,command_know,ride);
+					d_sled_dog.read(in);
+					all_dog.add(all_dog.size(),d_sled_dog);
+				}
+				break;
+               }
+               case 3:{
+				System.out.println("Введите номер собаки для удаления (от 0 до "+(all_dog.size()-1)+")");
+				num=in.nextInt();
+				if (num<all_dog.size()&&num>-1) all_dog.remove(num);
+				else System.out.println("Номер был введен неправильно");
+				break;
+               }
+               case 4:
+				System.out.println("Всего собак - "+all_dog.size());
+				break;
+               case 5:{
+				Collections.sort(all_dog);
+				System.out.println("Сортировка по возрастанию возрата выполнена");
+				break;
+		    }
+               case 6:{
+				int s_age;
+				System.out.println("Введите возраст для поиска: ");
+				s_age=in.nextInt();
+				Collections.sort(all_dog);
+				int nomer=recursiveBinarySearch(all_dog, 0, all_dog.size(),s_age);
+				if (nomer==-1) System.out.println("Подходящего элемента нет");
+				else System.out.println(all_dog.get(nomer));
+				break;
+               }
+		}
+        }
         Ride_character<String> ride_2 = new Ride_character<String>("тридцать", "пять");
         System.out.println(ride.toString());
         System.out.println(ride_2.toString());
@@ -153,6 +228,7 @@ public class Program{
                   your_dog_1.dog_year(y);
                   k=y.year;
                   System.out.println("Год рождения - "+k);
+			 break;
                }
 	   }
     }

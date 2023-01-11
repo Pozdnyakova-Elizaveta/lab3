@@ -9,10 +9,10 @@ import lab3.Character;
 import lab3.Needs;
 import lab3.Command_know;
 import java.util.Arrays;
-class Dog implements Command, Cloneable{
+class Dog implements Command, Cloneable, Comparable<Dog> {
      static int sum=0;
      static int sum_friendly=0;
-     public Inf inf;
+     protected Inf inf;
      protected Look look;
      protected Character character;
      protected Needs needs;
@@ -123,7 +123,7 @@ class Dog implements Command, Cloneable{
      int age, learn;
      boolean friendly;
      try
-     {  File f = new File("C:\\Users\\Елизавета\\Desktop\\laba3\\lab3\\spisok.txt");
+     {  File f = new File("D:\\Работы\\laba3\\lab3\\spisok.txt");
         if (!f.exists()) throw new IOException("Не удалось открыть файл");
 	   FileReader fr = new FileReader(f);
         Scanner scan=new Scanner(fr);
@@ -278,4 +278,20 @@ class Dog implements Command, Cloneable{
    }
    return this;  
  }
+  public int compareTo(Dog d) {
+	Integer age1, age2, k;
+	age1=this.inf.get_age();
+	age2=d.inf.get_age();
+	k=age1.compareTo(age2);
+	if (k>0) return 1;
+	if (k<0) return -1;
+	else{
+		Integer learn1, learn2;
+		learn1=this.character.get_learn();
+		learn2=d.character.get_learn();
+		k=learn1.compareTo(learn2);
+		if (k>0) return 1;
+		else return -1;
+     }
+  }
 }
